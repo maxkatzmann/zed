@@ -81,7 +81,13 @@ use util::ResultExt as _;
 use workspace::{
     CollaboratorId, DraggedSelection, DraggedTab, PathList, SerializedPathList,
     ToggleWorkspaceSidebar, ToggleZoom, Workspace, WorkspaceId,
-    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
+    dock::{
+        DockPosition,
+        Panel,
+        PanelEvent,
+        resolve_panel_default_height,
+        resolve_panel_default_width,
+    },
 };
 
 const AGENT_PANEL_KEY: &str = "agent_panel";
@@ -2483,7 +2489,9 @@ impl Panel for AgentPanel {
             DockPosition::Left | DockPosition::Right => {
                 resolve_panel_default_width(f32::from(settings.default_width), window)
             }
-            DockPosition::Bottom => settings.default_height,
+            DockPosition::Bottom => {
+                resolve_panel_default_height(f32::from(settings.default_height), window)
+            }
         }
     }
 

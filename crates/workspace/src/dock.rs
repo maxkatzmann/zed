@@ -333,6 +333,14 @@ pub fn resolve_panel_default_width(value: f32, window: &Window) -> Pixels {
     }
 }
 
+pub fn resolve_panel_default_height(value: f32, window: &Window) -> Pixels {
+    if (0.0..=1.0).contains(&value) {
+        px(f32::from(window.viewport_size().height) * value)
+    } else {
+        px(value)
+    }
+}
+
 struct PanelEntry {
     panel: Arc<dyn PanelHandle>,
     size_state: PanelSizeState,
@@ -1525,7 +1533,7 @@ pub mod test {
 
 #[cfg(test)]
 mod tests {
-    use super::resolve_panel_default_width;
+    use super::{resolve_panel_default_height, resolve_panel_default_width};
     use gpui::{TestAppContext, px};
 
     #[gpui::test]
@@ -1537,6 +1545,19 @@ mod tests {
                 px(viewport_width * 0.5)
             );
             assert_eq!(resolve_panel_default_width(320.0, window), px(320.0));
+            gpui::Empty
+        });
+    }
+
+    #[gpui::test]
+    fn test_resolve_panel_default_height_relative(cx: &mut TestAppContext) {
+        cx.add_window(|window, _cx| {
+            let viewport_height = f32::from(window.viewport_size().height);
+            assert_eq!(
+                resolve_panel_default_height(0.25, window),
+                px(viewport_height * 0.25)
+            );
+            assert_eq!(resolve_panel_default_height(200.0, window), px(200.0));
             gpui::Empty
         });
     }

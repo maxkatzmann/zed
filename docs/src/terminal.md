@@ -302,7 +302,7 @@ Options: `"bottom"` (default), `"left"`, `"right"`
 {
   "terminal": {
     "default_width": 640,
-    "default_height": 320
+    "default_height": 320 // Pixels, or 0-1 for a window-height fraction
   }
 }
 ```

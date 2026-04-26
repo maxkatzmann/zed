@@ -139,7 +139,8 @@ pub struct TerminalSettingsContent {
     /// Default: 640
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
     pub default_width: Option<f32>,
-    /// Default height when the terminal is docked to the bottom.
+    /// Default height in pixels, or a fraction of the window height when between 0 and 1,
+    /// when the terminal is docked to the bottom.
     ///
     /// Default: 320
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]

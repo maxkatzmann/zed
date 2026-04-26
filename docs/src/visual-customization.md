@@ -493,7 +493,7 @@ Project panel can be shown/hidden with {#action project_panel::ToggleFocus} ({#k
     "button": true, // Show/hide the icon in the status bar
     "dock": "right", // Where to dock: left, right, bottom
     "default_width": 640, // Default width (left/right docked, pixels or 0-1 for a window-width fraction)
-    "default_height": 320 // Default height (bottom docked)
+    "default_height": 320 // Default height (bottom docked, pixels or 0-1 for a window-height fraction)
   },
   // Controls the font size for agent responses in the agent panel.
   // If not specified, it falls back to the UI font size.
@@ -514,7 +514,7 @@ See [Zed AI Documentation](./ai/overview.md) for additional non-visual AI settin
     "dock": "bottom",                   // Where to dock: left, right, bottom
     "button": true,                     // Show/hide status bar icon
     "default_width": 640,               // Default width (left/right docked, pixels or 0-1 for a window-width fraction)
-    "default_height": 320,              // Default height (bottom docked)
+    "default_height": 320,              // Default height (bottom docked, pixels or 0-1 for a window-height fraction)
 
     // Set the cursor blinking behavior in the terminal (on, off, terminal_controlled)
     "blinking": "terminal_controlled",

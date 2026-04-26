@@ -32,7 +32,14 @@ use workspace::{
     MoveItemToPaneInDirection, MovePaneDown, MovePaneLeft, MovePaneRight, MovePaneUp, Pane,
     PaneGroup, SplitDirection, SplitDown, SplitLeft, SplitMode, SplitRight, SplitUp, SwapPaneDown,
     SwapPaneLeft, SwapPaneRight, SwapPaneUp, ToggleZoom, Workspace,
-    dock::{DockPosition, Panel, PanelEvent, PanelHandle, resolve_panel_default_width},
+    dock::{
+        DockPosition,
+        Panel,
+        PanelEvent,
+        PanelHandle,
+        resolve_panel_default_height,
+        resolve_panel_default_width,
+    },
     item::SerializableItem,
     move_active_item, pane,
 };
@@ -1572,7 +1579,9 @@ impl Panel for TerminalPanel {
             DockPosition::Left | DockPosition::Right => {
                 resolve_panel_default_width(f32::from(settings.default_width), window)
             }
-            DockPosition::Bottom => settings.default_height,
+            DockPosition::Bottom => {
+                resolve_panel_default_height(f32::from(settings.default_height), window)
+            }
         }
     }
 

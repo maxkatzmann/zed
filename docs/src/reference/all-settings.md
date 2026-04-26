@@ -4099,6 +4099,7 @@ List of `integer` column numbers
 ```
 
 Values between 0 and 1 for `terminal.default_width` are treated as a fraction of the window width.
+Values between 0 and 1 for `terminal.default_height` are treated as a fraction of the window height.
 
 ### Terminal: Dock
 

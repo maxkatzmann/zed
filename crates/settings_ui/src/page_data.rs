@@ -5866,7 +5866,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Agent Panel Default Height",
-                description: "Default height when the agent panel is docked to the bottom.",
+                description: "Default height when the agent panel is docked to the bottom, in pixels or a fraction of the window height when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("agent.default_height"),
                     pick: |settings_content| {
@@ -6743,7 +6743,7 @@ fn terminal_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Default Height",
-                description: "Default height when the terminal is docked to the bottom (in pixels).",
+                description: "Default height when the terminal is docked to the bottom, in pixels or a fraction of the window height when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("terminal.default_height"),
                     pick: |settings_content| {

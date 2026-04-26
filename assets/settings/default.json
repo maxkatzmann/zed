@@ -1010,7 +1010,7 @@
     "sidebar_side": "left",
     // Default width when the agent panel is docked to the left or right (pixels, or 0-1 for a window-width fraction).
     "default_width": 640,
-    // Default height when the agent panel is docked to the bottom.
+    // Default height when the agent panel is docked to the bottom (pixels, or 0-1 for a window-height fraction).
     "default_height": 320,
     // Whether to limit the content width in the agent panel. When enabled,
     // content will be constrained to `max_content_width` and centered when
@@ -1754,7 +1754,7 @@
     "flexible": true,
     // Default width when the terminal is docked to the left or right (pixels, or 0-1 for a window-width fraction).
     "default_width": 640,
-    // Default height when the terminal is docked to the bottom.
+    // Default height when the terminal is docked to the bottom (pixels, or 0-1 for a window-height fraction).
     "default_height": 320,
     // What working directory to use when launching the terminal.
     // May take 5 values:
