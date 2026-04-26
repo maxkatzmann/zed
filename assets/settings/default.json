@@ -922,12 +922,10 @@
   "collaboration_panel": {
     // Whether to show the collaboration panel button in the status bar.
     "button": true,
-    // Where to dock the collaboration panel. Can be 'left', 'right', or 'bottom'.
+    // Where to dock the collaboration panel. Can be 'left' or 'right'.
     "dock": "right",
     // Default width of the collaboration panel (pixels, or 0-1 for a window-width fraction).
     "default_width": 240,
-    // Default height of the collaboration panel (pixels, or 0-1 for a window-height fraction).
-    "default_height": 240,
   },
   "git_panel": {
     // Whether to show the git panel button in the status bar.

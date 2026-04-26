@@ -8,7 +8,6 @@ pub struct CollaborationPanelSettings {
     pub button: bool,
     pub dock: DockPosition,
     pub default_width: Pixels,
-    pub default_height: Pixels,
 }
 
 impl Settings for CollaborationPanelSettings {
@@ -19,7 +18,6 @@ impl Settings for CollaborationPanelSettings {
             button: panel.button.unwrap(),
             dock: panel.dock.unwrap().into(),
             default_width: panel.default_width.map(px).unwrap(),
-            default_height: panel.default_height.map(px).unwrap(),
         }
     }
 }

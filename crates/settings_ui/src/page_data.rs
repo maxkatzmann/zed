@@ -5739,7 +5739,7 @@ fn panels_page() -> SettingsPage {
         ]
     }
 
-    fn collaboration_panel_section() -> [SettingsPageItem; 5] {
+    fn collaboration_panel_section() -> [SettingsPageItem; 4] {
         [
             SettingsPageItem::SectionHeader("Collaboration Panel"),
             SettingsPageItem::SettingItem(SettingItem {
@@ -5786,7 +5786,7 @@ fn panels_page() -> SettingsPage {
                 title: "Collaboration Panel Default Width",
                 description: "Default width of the collaboration panel in pixels, or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
-                    json_path: Some("collaboration_panel.default_width"),
+                    json_path: Some("collaboration_panel.dock"),
                     pick: |settings_content| {
                         settings_content
                             .collaboration_panel
@@ -5799,28 +5799,6 @@ fn panels_page() -> SettingsPage {
                             .collaboration_panel
                             .get_or_insert_default()
                             .default_width = value;
-                    },
-                }),
-                metadata: None,
-                files: USER,
-            }),
-            SettingsPageItem::SettingItem(SettingItem {
-                title: "Collaboration Panel Default Height",
-                description: "Default height of the collaboration panel in pixels, or a fraction of the window height when between 0 and 1.",
-                field: Box::new(SettingField {
-                    json_path: Some("collaboration_panel.default_height"),
-                    pick: |settings_content| {
-                        settings_content
-                            .collaboration_panel
-                            .as_ref()?
-                            .default_height
-                            .as_ref()
-                    },
-                    write: |settings_content, value, _| {
-                        settings_content
-                            .collaboration_panel
-                            .get_or_insert_default()
-                            .default_height = value;
                     },
                 }),
                 metadata: None,
