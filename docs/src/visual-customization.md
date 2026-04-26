@@ -591,8 +591,9 @@ See [Terminal settings](./reference/all-settings.md#terminal) for additional non
   // Collaboration Panel
   "collaboration_panel": {
     "button": true, // Show/hide status bar icon
-    "dock": "left", // Where to dock: left, right
-    "default_width": 240 // Default width of the collaboration panel (pixels, or 0-1 for a window-width fraction).
+    "dock": "left", // Where to dock: left, right, bottom
+    "default_width": 240, // Default width of the collaboration panel (pixels, or 0-1 for a window-width fraction).
+    "default_height": 240 // Default height of the collaboration panel (pixels, or 0-1 for a window-height fraction).
   },
   "show_call_status_icon": true // Shown call status in the OS status bar.
 }

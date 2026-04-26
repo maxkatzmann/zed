@@ -5268,7 +5268,8 @@ Visit [the Configuration page](../ai/configuration.md) under the AI section to l
   "collaboration_panel": {
     "button": true,
     "dock": "left",
-    "default_width": 240
+    "default_width": 240,
+    "default_height": 240
   }
 }
 ```
@@ -5276,8 +5277,9 @@ Visit [the Configuration page](../ai/configuration.md) under the AI section to l
 **Options**
 
 - `button`: Whether to show the collaboration panel button in the status bar
-- `dock`: Where to dock the collaboration panel. Can be `left` or `right`
+- `dock`: Where to dock the collaboration panel. Can be `left`, `right`, or `bottom`
 - `default_width`: Default width of the collaboration panel (pixels, or a fraction of the window width when between 0 and 1)
+- `default_height`: Default height of the collaboration panel (pixels, or a fraction of the window height when between 0 and 1)
 
 ## Debugger
 

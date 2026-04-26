@@ -42,7 +42,13 @@ use util::{ResultExt, TryFutureExt, maybe};
 use workspace::{
     CopyRoomId, Deafen, LeaveCall, MultiWorkspace, Mute, OpenChannelNotes, OpenChannelNotesById,
     ScreenShare, ShareProject, Workspace,
-    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
+    dock::{
+        DockPosition,
+        Panel,
+        PanelEvent,
+        resolve_panel_default_height,
+        resolve_panel_default_width,
+    },
     notifications::{
         DetachAndPromptErr, Notification as WorkspaceNotification, NotificationId, NotifyResultExt,
         SuppressEvent,
@@ -3709,7 +3715,7 @@ impl Panel for CollabPanel {
     }
 
     fn position_is_valid(&self, position: DockPosition) -> bool {
-        matches!(position, DockPosition::Left | DockPosition::Right)
+        matches!(position, DockPosition::Left | DockPosition::Right | DockPosition::Bottom)
     }
 
     fn set_position(
@@ -3724,10 +3730,15 @@ impl Panel for CollabPanel {
     }
 
     fn default_size(&self, window: &Window, cx: &App) -> Pixels {
-        resolve_panel_default_width(
-            f32::from(CollaborationPanelSettings::get_global(cx).default_width),
-            window,
-        )
+        let settings = CollaborationPanelSettings::get_global(cx);
+        match self.position(window, cx) {
+            DockPosition::Left | DockPosition::Right => {
+                resolve_panel_default_width(f32::from(settings.default_width), window)
+            }
+            DockPosition::Bottom => {
+                resolve_panel_default_height(f32::from(settings.default_height), window)
+            }
+        }
     }
 
     fn set_active(&mut self, active: bool, _window: &mut Window, cx: &mut Context<Self>) {

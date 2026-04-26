@@ -727,6 +727,11 @@ pub struct PanelSettingsContent {
     /// Default: 240
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
     pub default_width: Option<f32>,
+    /// Default height of the panel in pixels, or a fraction of the window height when between 0 and 1.
+    ///
+    /// Default: 240
+    #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
+    pub default_height: Option<f32>,
 }
 
 #[with_fallible_options]
