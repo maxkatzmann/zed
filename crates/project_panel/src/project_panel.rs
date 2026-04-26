@@ -73,7 +73,7 @@ use util::{
 use workspace::{
     DraggedSelection, OpenInTerminal, OpenMode, OpenOptions, OpenVisible, PreviewTabsSettings,
     SelectedEntry, SplitDirection, Workspace,
-    dock::{DockPosition, Panel, PanelEvent},
+    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
     notifications::{DetachAndPromptErr, NotifyResultExt, NotifyTaskExt},
 };
 use worktree::CreatedEntry;
@@ -7242,8 +7242,11 @@ impl Panel for ProjectPanel {
         });
     }
 
-    fn default_size(&self, _: &Window, cx: &App) -> Pixels {
-        ProjectPanelSettings::get_global(cx).default_width
+    fn default_size(&self, window: &Window, cx: &App) -> Pixels {
+        resolve_panel_default_width(
+            f32::from(ProjectPanelSettings::get_global(cx).default_width),
+            window,
+        )
     }
 
     fn icon(&self, _: &Window, cx: &App) -> Option<IconName> {

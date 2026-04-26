@@ -118,7 +118,8 @@ pub struct AgentSettingsContent {
     ///
     /// Default: left
     pub sidebar_side: Option<SidebarDockPosition>,
-    /// Default width in pixels when the agent panel is docked to the left or right.
+    /// Default width in pixels, or a fraction of the window width when between 0 and 1,
+    /// when the agent panel is docked to the left or right.
     ///
     /// Default: 640
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]

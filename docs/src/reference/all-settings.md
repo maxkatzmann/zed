@@ -4098,6 +4098,8 @@ List of `integer` column numbers
 }
 ```
 
+Values between 0 and 1 for `terminal.default_width` are treated as a fraction of the window width.
+
 ### Terminal: Dock
 
 - Description: Control the position of the dock
@@ -4978,13 +4980,13 @@ Run the {#action theme_selector::Toggle} action in the command palette to see a 
 
 ### Default Width
 
-- Description: Customize default width taken by project panel
+- Description: Customize default width taken by project panel (pixels, or a fraction of the window width when between 0 and 1)
 - Setting: `default_width`
 - Default: `240`
 
 **Options**
 
-`float` values
+`float` values. Values between 0 and 1 are treated as a fraction of the window width.
 
 ### Auto Reveal Entries
 
@@ -5274,7 +5276,7 @@ Visit [the Configuration page](../ai/configuration.md) under the AI section to l
 
 - `button`: Whether to show the collaboration panel button in the status bar
 - `dock`: Where to dock the collaboration panel. Can be `left` or `right`
-- `default_width`: Default width of the collaboration panel
+- `default_width`: Default width of the collaboration panel (pixels, or a fraction of the window width when between 0 and 1)
 
 ## Debugger
 
@@ -5323,7 +5325,7 @@ See the [debugger page](../debugger.md) for more information about debugging sup
 
 - `button`: Whether to show the git panel button in the status bar
 - `dock`: Where to dock the git panel. Can be `left` or `right`
-- `default_width`: Default width of the git panel
+- `default_width`: Default width of the git panel (pixels, or a fraction of the window width when between 0 and 1)
 - `status_style`: How to display git status. Can be `label_color` or `icon`
 - `fallback_branch_name`: What branch name to use if `init.defaultBranch` is not set
 - `sort_by_path`: Whether to sort entries in the panel by path or by status (the default)
@@ -5412,6 +5414,8 @@ You can define these in user or project settings; project settings are merged on
   }
 }
 ```
+
+Values between 0 and 1 for `outline_panel.default_width` are treated as a fraction of the window width.
 
 ## Calls
 

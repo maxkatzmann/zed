@@ -32,7 +32,7 @@ use workspace::{
     MoveItemToPaneInDirection, MovePaneDown, MovePaneLeft, MovePaneRight, MovePaneUp, Pane,
     PaneGroup, SplitDirection, SplitDown, SplitLeft, SplitMode, SplitRight, SplitUp, SwapPaneDown,
     SwapPaneLeft, SwapPaneRight, SwapPaneUp, ToggleZoom, Workspace,
-    dock::{DockPosition, Panel, PanelEvent, PanelHandle},
+    dock::{DockPosition, Panel, PanelEvent, PanelHandle, resolve_panel_default_width},
     item::SerializableItem,
     move_active_item, pane,
 };
@@ -1569,7 +1569,9 @@ impl Panel for TerminalPanel {
     fn default_size(&self, window: &Window, cx: &App) -> Pixels {
         let settings = TerminalSettings::get_global(cx);
         match self.position(window, cx) {
-            DockPosition::Left | DockPosition::Right => settings.default_width,
+            DockPosition::Left | DockPosition::Right => {
+                resolve_panel_default_width(f32::from(settings.default_width), window)
+            }
             DockPosition::Bottom => settings.default_height,
         }
     }

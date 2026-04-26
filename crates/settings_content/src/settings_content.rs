@@ -613,7 +613,7 @@ pub struct GitPanelSettingsContent {
     ///
     /// Default: left
     pub dock: Option<DockPosition>,
-    /// Default width of the panel in pixels.
+    /// Default width of the panel in pixels, or a fraction of the window width when between 0 and 1.
     ///
     /// Default: 360
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
@@ -722,7 +722,7 @@ pub struct PanelSettingsContent {
     ///
     /// Default: left
     pub dock: Option<DockPosition>,
-    /// Default width of the panel in pixels.
+    /// Default width of the panel in pixels, or a fraction of the window width when between 0 and 1.
     ///
     /// Default: 240
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
@@ -955,7 +955,8 @@ pub struct OutlinePanelSettingsContent {
     ///
     /// Default: true
     pub button: Option<bool>,
-    /// Customize default width (in pixels) taken by outline panel
+    /// Customize default width (in pixels), or a fraction of the window width when between 0 and 1,
+    /// taken by outline panel.
     ///
     /// Default: 240
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]

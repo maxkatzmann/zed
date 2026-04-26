@@ -698,7 +698,8 @@ pub struct ProjectPanelSettingsContent {
     ///
     /// Default: false
     pub hide_gitignore: Option<bool>,
-    /// Customize default width (in pixels) taken by project panel
+    /// Customize default width (in pixels), or a fraction of the window width when between 0 and 1,
+    /// taken by project panel.
     ///
     /// Default: 240
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]

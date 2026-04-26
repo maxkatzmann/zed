@@ -42,7 +42,7 @@ use util::{ResultExt, TryFutureExt, maybe};
 use workspace::{
     CopyRoomId, Deafen, LeaveCall, MultiWorkspace, Mute, OpenChannelNotes, OpenChannelNotesById,
     ScreenShare, ShareProject, Workspace,
-    dock::{DockPosition, Panel, PanelEvent},
+    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
     notifications::{
         DetachAndPromptErr, Notification as WorkspaceNotification, NotificationId, NotifyResultExt,
         SuppressEvent,
@@ -3723,8 +3723,11 @@ impl Panel for CollabPanel {
         });
     }
 
-    fn default_size(&self, _window: &Window, cx: &App) -> Pixels {
-        CollaborationPanelSettings::get_global(cx).default_width
+    fn default_size(&self, window: &Window, cx: &App) -> Pixels {
+        resolve_panel_default_width(
+            f32::from(CollaborationPanelSettings::get_global(cx).default_width),
+            window,
+        )
     }
 
     fn set_active(&mut self, active: bool, _window: &mut Window, cx: &mut Context<Self>) {

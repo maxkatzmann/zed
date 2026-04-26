@@ -80,7 +80,7 @@ use util::{ResultExt, TryFutureExt, maybe, rel_path::RelPath};
 use workspace::SERIALIZATION_THROTTLE_TIME;
 use workspace::{
     Workspace,
-    dock::{DockPosition, Panel, PanelEvent},
+    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
     notifications::{DetachAndPromptErr, ErrorMessagePrompt, NotificationId, NotifyResultExt},
 };
 
@@ -6020,8 +6020,11 @@ impl Panel for GitPanel {
         });
     }
 
-    fn default_size(&self, _: &Window, cx: &App) -> Pixels {
-        GitPanelSettings::get_global(cx).default_width
+    fn default_size(&self, window: &Window, cx: &App) -> Pixels {
+        resolve_panel_default_width(
+            f32::from(GitPanelSettings::get_global(cx).default_width),
+            window,
+        )
     }
 
     fn icon(&self, _: &Window, cx: &App) -> Option<ui::IconName> {

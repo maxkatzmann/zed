@@ -56,7 +56,7 @@ use ui::{
 use util::{RangeExt, ResultExt, TryFutureExt, debug_panic, rel_path::RelPath};
 use workspace::{
     OpenInTerminal, WeakItemHandle, Workspace,
-    dock::{DockPosition, Panel, PanelEvent},
+    dock::{DockPosition, Panel, PanelEvent, resolve_panel_default_width},
     item::ItemHandle,
     searchable::{SearchEvent, SearchableItem},
 };
@@ -4901,8 +4901,11 @@ impl Panel for OutlinePanel {
         });
     }
 
-    fn default_size(&self, _: &Window, cx: &App) -> Pixels {
-        OutlinePanelSettings::get_global(cx).default_width
+    fn default_size(&self, window: &Window, cx: &App) -> Pixels {
+        resolve_panel_default_width(
+            f32::from(OutlinePanelSettings::get_global(cx).default_width),
+            window,
+        )
     }
 
     fn icon(&self, _: &Window, cx: &App) -> Option<IconName> {

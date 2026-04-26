@@ -4589,7 +4589,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Project Panel Default Width",
-                description: "Default width of the project panel in pixels.",
+                description: "Default width of the project panel in pixels, or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("project_panel.default_width"),
                     pick: |settings_content| {
@@ -5276,7 +5276,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Outline Panel Default Width",
-                description: "Default width of the outline panel in pixels.",
+                description: "Default width of the outline panel in pixels, or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("outline_panel.default_width"),
                     pick: |settings_content| {
@@ -5480,7 +5480,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Git Panel Default Width",
-                description: "Default width of the Git panel in pixels.",
+                description: "Default width of the Git panel in pixels, or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("git_panel.default_width"),
                     pick: |settings_content| {
@@ -5784,7 +5784,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Collaboration Panel Default Width",
-                description: "Default width of the collaboration panel in pixels.",
+                description: "Default width of the collaboration panel in pixels, or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("collaboration_panel.dock"),
                     pick: |settings_content| {
@@ -5851,7 +5851,7 @@ fn panels_page() -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Agent Panel Default Width",
-                description: "Default width when the agent panel is docked to the left or right.",
+                description: "Default width when the agent panel is docked to the left or right, in pixels or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("agent.default_width"),
                     pick: |settings_content| {
@@ -6725,7 +6725,7 @@ fn terminal_page() -> SettingsPage {
             SettingsPageItem::SectionHeader("Layout Settings"),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Default Width",
-                description: "Default width when the terminal is docked to the left or right (in pixels).",
+                description: "Default width when the terminal is docked to the left or right, in pixels or a fraction of the window width when between 0 and 1.",
                 field: Box::new(SettingField {
                     json_path: Some("terminal.default_width"),
                     pick: |settings_content| {

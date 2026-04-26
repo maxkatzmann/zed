@@ -447,7 +447,7 @@ Project panel can be shown/hidden with {#action project_panel::ToggleFocus} ({#k
   // Project Panel Settings
   "project_panel": {
     "button": true,                 // Show/hide button in the status bar
-    "default_width": 240,           // Default panel width
+    "default_width": 240,           // Default panel width (pixels, or 0-1 for a window-width fraction)
     "dock": "left",                 // Position of the dock (left, right)
     "entry_spacing": "comfortable", // Vertical spacing (comfortable, standard)
     "file_icons": true,             // Show/hide file icons
@@ -492,7 +492,7 @@ Project panel can be shown/hidden with {#action project_panel::ToggleFocus} ({#k
     "enabled": true, // Enable/disable the agent
     "button": true, // Show/hide the icon in the status bar
     "dock": "right", // Where to dock: left, right, bottom
-    "default_width": 640, // Default width (left/right docked)
+    "default_width": 640, // Default width (left/right docked, pixels or 0-1 for a window-width fraction)
     "default_height": 320 // Default height (bottom docked)
   },
   // Controls the font size for agent responses in the agent panel.
@@ -513,7 +513,7 @@ See [Zed AI Documentation](./ai/overview.md) for additional non-visual AI settin
   "terminal": {
     "dock": "bottom",                   // Where to dock: left, right, bottom
     "button": true,                     // Show/hide status bar icon
-    "default_width": 640,               // Default width (left/right docked)
+    "default_width": 640,               // Default width (left/right docked, pixels or 0-1 for a window-width fraction)
     "default_height": 320,              // Default height (bottom docked)
 
     // Set the cursor blinking behavior in the terminal (on, off, terminal_controlled)
@@ -550,7 +550,7 @@ See [Terminal settings](./reference/all-settings.md#terminal) for additional non
   "git_panel": {
     "button": true,               // Show/hide status bar icon
     "dock": "left",               // Where to dock: left, right
-    "default_width": 360,         // Default width of the git panel.
+    "default_width": 360,         // Default width of the git panel (pixels, or 0-1 for a window-width fraction).
     "status_style": "icon",       // label_color, icon
     "sort_by_path": false,        // Sort by path (false) or status (true)
     "scrollbar": {
@@ -567,7 +567,7 @@ See [Terminal settings](./reference/all-settings.md#terminal) for additional non
   // Outline Panel
   "outline_panel": {
     "button": true,               // Show/hide status bar icon
-    "default_width": 300,         // Default width of the git panel
+    "default_width": 300,         // Default width of the outline panel (pixels, or 0-1 for a window-width fraction)
     "dock": "left",               // Where to dock: left, right
     "file_icons": true,           // Show/hide file_icons
     "folder_icons": true,         // Show file_icons (true), chevrons (false) for dirs
@@ -592,7 +592,7 @@ See [Terminal settings](./reference/all-settings.md#terminal) for additional non
   "collaboration_panel": {
     "button": true, // Show/hide status bar icon
     "dock": "left", // Where to dock: left, right
-    "default_width": 240 // Default width of the collaboration panel.
+    "default_width": 240 // Default width of the collaboration panel (pixels, or 0-1 for a window-width fraction).
   },
   "show_call_status_icon": true // Shown call status in the OS status bar.
 }

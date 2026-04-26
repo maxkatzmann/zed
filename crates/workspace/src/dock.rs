@@ -325,6 +325,14 @@ pub struct PanelSizeState {
     pub flex: Option<f32>,
 }
 
+pub fn resolve_panel_default_width(value: f32, window: &Window) -> Pixels {
+    if (0.0..=1.0).contains(&value) {
+        px(f32::from(window.viewport_size().width) * value)
+    } else {
+        px(value)
+    }
+}
+
 struct PanelEntry {
     panel: Arc<dyn PanelHandle>,
     size_state: PanelSizeState,
@@ -1512,5 +1520,24 @@ pub mod test {
         fn focus_handle(&self, _cx: &App) -> FocusHandle {
             self.focus_handle.clone()
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::resolve_panel_default_width;
+    use gpui::{TestAppContext, px};
+
+    #[gpui::test]
+    fn test_resolve_panel_default_width_relative(cx: &mut TestAppContext) {
+        cx.add_window(|window, _cx| {
+            let viewport_width = f32::from(window.viewport_size().width);
+            assert_eq!(
+                resolve_panel_default_width(0.5, window),
+                px(viewport_width * 0.5)
+            );
+            assert_eq!(resolve_panel_default_width(320.0, window), px(320.0));
+            gpui::Empty
+        });
     }
 }

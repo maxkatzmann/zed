@@ -133,7 +133,8 @@ pub struct TerminalSettingsContent {
     ///
     /// Default: true
     pub flexible: Option<bool>,
-    /// Default width when the terminal is docked to the left or right.
+    /// Default width in pixels, or a fraction of the window width when between 0 and 1,
+    /// when the terminal is docked to the left or right.
     ///
     /// Default: 640
     #[serde(serialize_with = "crate::serialize_optional_f32_with_two_decimal_places")]
